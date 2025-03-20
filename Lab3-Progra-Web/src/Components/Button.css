@@ -1,0 +1,14 @@
+.New-Fact-Button {
+	padding: 10px 15px;
+	border: none;
+	background-color: #be0976;
+	color: white;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: 0.3s;
+}
+
+.New-Fact-Button:hover {
+	background-color: #8a0655;
+}
