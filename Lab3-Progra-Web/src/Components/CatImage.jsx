@@ -1,9 +1,8 @@
 import React from 'react';
 
 const CatImage = ({ imageUrl }) => {
-	return <img className='CatImage' src={imageUrl} alt='Minino' />;
+	// <-- Prop corregida a "imageUrl"
+	return <img src={imageUrl} alt='Minino' style={{ maxWidth: '100%' }} />;
 };
 
 export default CatImage;
-
-//* Utilizamos la función flecha para definir el componente y devuelve el elemento en p*/

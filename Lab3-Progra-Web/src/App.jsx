@@ -9,27 +9,27 @@ import './App.css';
 
 function App() {
 	const [catFact, setCatFact] = useState('');
-	const [imagUrl, setImagUrl] = useState('');
+	const [imageUrl, setImageUrl] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [errorMessage, setErrorMessage] = useState(null);
 
 	useEffect(() => {
-		const getData = async () => {
-			await fetchCatData();
-		};
-		getData();
+		fetchCatData();
 	}, []);
 
 	const fetchCatData = async () => {
-		//*LLAMADO A LA API
 		setLoading(true);
 		setErrorMessage(null);
 		try {
 			const fact = await fetchCatFact();
+			console.log('Fact obtenido:', fact);
+
 			if (fact) {
 				const image = await fetchCatImage(fact);
-				setCatFact(fact); //* Guarda datos en el estado
-				setImagUrl(image);
+				console.log('Imagen obtenida:', image);
+
+				setCatFact(fact);
+				setImageUrl(image);
 			}
 		} catch (error) {
 			console.error('Error fetching data', error);
@@ -50,7 +50,7 @@ function App() {
 				{!loading && !errorMessage && <CatFact fact={catFact} />}
 
 				<div className='Image-Container'>
-					{!loading && !errorMessage && <CatImage imageUrl={imagUrl} />}
+					{!loading && !errorMessage && <CatImage imageUrl={imageUrl} />}
 					<div className='Button-Container'>
 						<Button onClick={fetchCatData} />
 					</div>
